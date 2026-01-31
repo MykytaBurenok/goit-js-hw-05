@@ -2,7 +2,7 @@ const normalize = (str = '') => str.toLowerCase().trim();
 const getUsersWithFriend = (users, friendName) => {
   const normalizedFriend = normalize(friendName);
   return users.filter(({ friends }) =>
-    friends.some(friend => normalize(friend) === normalizedFriend)
+    friends.map(normalize).includes(normalizedFriend)
   );
 };
 
